@@ -1,5 +1,8 @@
 # Degit Webext
 
+<!-- markdownlint-disable-next-line no-inline-html -->
+<img src="src/assets/icon-blue-512.png" width="200px" />
+
 ![xuanfa](/Photos/1.png)
 
 A web extension for [Degit](https://github.com/Rich-Harris/degit), it generates a button and add a shortcut key to fast copy a Degit command path in github repository page, support chrome and firefox now.
@@ -44,4 +47,4 @@ web-ext run -t chromium --chromium-binary C:/software/XXX/XXX.exe
 
 ## License
 
-[MIT](/LICENSE)
+[MIT](./License)
