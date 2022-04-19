@@ -1,9 +1,11 @@
-import { execSync } from 'child_process'
+// import { execSync } from 'child_process'
 import type { InlineConfig } from 'vite'
 import { mergeConfig, build as viteBuild } from 'vite'
 import WindiCSS from 'vite-plugin-windicss'
 import chokidar from 'chokidar'
-import { isDev, log, port, r } from './scripts/utils'
+import fs from 'fs-extra'
+import { getManifest } from './src/manifest'
+import { isDev, log, r } from './scripts/utils'
 import { sharedConfig } from './vite.config'
 import windiConfig from './windi.config'
 import packageJson from './package.json'
@@ -11,9 +13,7 @@ import packageJson from './package.json'
 const config: InlineConfig = {
   ...sharedConfig,
   build: {
-    watch: isDev
-      ? {}
-      : undefined,
+    watch: isDev ? {} : undefined,
     cssCodeSplit: false,
     emptyOutDir: false,
     sourcemap: isDev ? 'inline' : false,
@@ -42,32 +42,25 @@ const config: InlineConfig = {
   ],
 }
 
-function writeManifest() {
-  execSync('npx esno ./scripts/manifest.ts', { stdio: 'inherit' })
+async function writeManifest() {
+  await fs.writeJSON(r('extension/manifest.json'), await getManifest(), { spaces: 2 })
+  log('PRE', 'write manifest.json')
 }
 
 (async() => {
-  log('HTML', 'building popup and options')
+  log('HTML', 'building popup')
   await viteBuild(mergeConfig(config, {
-    base: '/dist/',
-    server: {
-      port,
-      hmr: {
-        host: 'localhost',
-      },
-    },
     build: {
       outDir: r('extension/dist'),
       rollupOptions: {
         input: {
-          options: r('src/options/index.html'),
           popup: r('src/popup/index.html'),
         },
       },
     },
   }))
 
-  log('HTML', 'building contentScripts')
+  log('Content Scripts', 'building contentScripts')
   await viteBuild(mergeConfig(config, {
     build: {
       outDir: r('extension/dist/contentScripts'),
@@ -104,12 +97,12 @@ function writeManifest() {
 
   log('Build', 'done')
 
-  writeManifest()
+  await writeManifest()
 })()
 
 if (isDev) {
   chokidar.watch([r('src/manifest.ts'), r('package.json')])
-    .on('change', () => {
-      writeManifest()
+    .on('change', async() => {
+      await writeManifest()
     })
 }
