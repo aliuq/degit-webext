@@ -2,7 +2,7 @@
 
 ![xuanfa](/Photos/1.png)
 
-A web extension for [Degit](https://github.com/Rich-Harris/degit), allows you copy valid path quickly. through click button and keydown shortcut. self full control, support chrome and firefox now.
+A web extension for [Degit](https://github.com/Rich-Harris/degit), it generates a button and add a shortcut key to fast copy a Degit command path in github repository page, support chrome and firefox now.
 
 ## About
 

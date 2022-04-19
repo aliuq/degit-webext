@@ -3,7 +3,7 @@
   "displayName": "Degit WebExt",
   "version": "0.0.1",
   "private": true,
-  "description": "Fast copy `degit` command path",
+  "description": "Fast copy a Degit command path in github repository page",
   "scripts": {
     "dev:chromium": "npm run clear && cross-env NODE_ENV=development TARGET=chrome esno build.ts",
     "dev:firefox": "npm run clear && cross-env NODE_ENV=development TARGET=firefox esno build.ts",
