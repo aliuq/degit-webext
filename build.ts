@@ -5,7 +5,7 @@ import WindiCSS from 'vite-plugin-windicss'
 import chokidar from 'chokidar'
 import fs from 'fs-extra'
 import { getManifest } from './src/manifest'
-import { isDev, log, r } from './scripts/utils'
+import { isDev, log, port, r } from './scripts/utils'
 import { sharedConfig } from './vite.config'
 import windiConfig from './windi.config'
 import packageJson from './package.json'
@@ -50,6 +50,14 @@ async function writeManifest() {
 (async() => {
   log('HTML', 'building popup')
   await viteBuild(mergeConfig(config, {
+    base: '/dist/',
+    // For right reference assets in popup development mode
+    server: {
+      port,
+      hmr: {
+        host: 'localhost',
+      },
+    },
     build: {
       outDir: r('extension/dist'),
       rollupOptions: {
