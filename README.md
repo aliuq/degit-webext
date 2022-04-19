@@ -44,4 +44,4 @@ web-ext run -t chromium --chromium-binary C:/software/XXX/XXX.exe
 
 ## License
 
-MIT
+[MIT](/LICENSE)
