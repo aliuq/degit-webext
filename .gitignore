@@ -8,11 +8,11 @@
 *.pem
 *.xpi
 *.zip
+*.tgz
 dist
 dist-ssr
 extension/
 node_modules
 src/auto-imports.d.ts
 src/components.d.ts
-Photos/
 .output/
