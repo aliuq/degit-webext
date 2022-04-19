@@ -21,12 +21,20 @@ export async function getManifest() {
           default_icon: './assets/icon-512.png',
           default_popup: './dist/popup/index.html',
         },
+        content_security_policy: 'script-src \'self\'; object-src \'self\'',
       }
       : {
         action: {
           default_icon: './assets/icon-512.png',
           default_popup: './dist/popup/index.html',
         },
+        content_security_policy: {
+          extension_pages: 'script-src \'self\'; object-src \'self\'',
+        },
+        host_permissions: [
+          'http://github.com/*',
+          'https://github.com/*',
+        ],
       }),
     // options_ui: {
     //   page: './dist/options/index.html',
@@ -48,11 +56,16 @@ export async function getManifest() {
       'tabs',
       'storage',
       'activeTab',
+      ...(
+        isFirefox
+          ? [
+            'http://github.com/*',
+            'https://github.com/*',
+          ]
+          : []
+      ),
     ],
-    host_permissions: [
-      'http://github.com/*',
-      'https://github.com/*',
-    ],
+
     content_scripts: [{
       matches: ['http://github.com/*', 'https://github.com/*'],
       js: ['./dist/contentScripts/index.global.js'],
@@ -72,9 +85,7 @@ export async function getManifest() {
         },
       },
     },
-    content_security_policy: {
-      extension_pages: 'script-src \'self\'; object-src \'self\'',
-    },
+
   }
 
   if (isDev) {
