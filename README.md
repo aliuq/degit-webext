@@ -23,7 +23,9 @@ pnpm build:chromium
 pnpm run pack
 ```
 
-For firefox: ensure `firefox` is installed, and added to the environment variable `PATH`. if not, you have to point to the firefox executable file. then run the following command:
+For firefox: ensure `firefox` is installed, and added to the environment variable `PATH`. if not, you have to point to the firefox executable file.
+another thing is that firefox has a `firefoxProfile` field in `package.json`, you can delete this line or provide a [profile name](about:profiles) to start firefox with a profile.
+then run the following command:
 
 ```bash
 pnpm dev:firefox
