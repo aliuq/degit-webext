@@ -12,12 +12,12 @@
     "build:chromium": "esno build.ts -t chromium -p",
     "build:firefox": "esno build.ts -t firefox -p",
     "pack": "run-p pack:chromium:* & run-p pack:firefox:*",
-    "pack:chromium:zip": "web-ext build -a ./.output -s ./extension/chromium --filename chromium.zip -o",
+    "pack:chromium:zip": "web-ext build -a ./.output -s ./extension/chromium -n chromium.zip -o",
     "pack:chromium:crx": "crx pack extension/chromium -o ./.output/chromium.crx",
-    "pack:chromium:xpi": "web-ext build -a ./.output -s ./extension/chromium --filename chromium.xpi -o",
-    "pack:firefox:zip": "web-ext build -a ./.output -s ./extension/firefox --filename firefox.zip -o",
+    "pack:chromium:xpi": "web-ext build -a ./.output -s ./extension/chromium -n chromium.xpi -o",
+    "pack:firefox:zip": "web-ext build -a ./.output -s ./extension/firefox -n firefox.zip -o",
     "pack:firefox:crx": "crx pack extension/firefox -o ./.output/firefox.crx",
-    "pack:firefox:xpi": "web-ext build -a ./.output -s ./extension/firefox --filename firefox.xpi -o",
+    "pack:firefox:xpi": "web-ext build -a ./.output -s ./extension/firefox -n firefox.xpi -o",
     "start:chromium": "web-ext run -s ./extension/chromium --target chromium --args='--auto-open-devtools-for-tabs' --args='--start-maximized'",
     "start:firefox": "web-ext run -s ./extension/firefox --firefox firefox.exe --browser-console",
     "start:all": "concurrently -n Chromium,Firefox -c blue.bold,yellow.bold \"pnpm start:chromium\" \"pnpm start:firefox\"",
@@ -71,7 +71,6 @@
   "webExt": {
     "verbose": false,
     "run": {
-      "firefoxProfile": "default-release-2",
       "startUrl": [
         "https://github.com/Rich-Harris/degit/tree/master/src",
         "https://github.com/vuejs/core"
