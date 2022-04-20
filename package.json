@@ -23,7 +23,8 @@
     "start:all": "concurrently -n Chromium,Firefox -c blue.bold,yellow.bold \"pnpm start:chromium\" \"pnpm start:firefox\"",
     "clear": "rimraf extension/chromium extension/firefox extension/__COMMON__ .output",
     "lint": "eslint 'src/**/*.{json,ts,js,vue}'",
-    "lint:firefox": "web-ext lint -s ./extension/firefox"
+    "lint:firefox": "web-ext lint -s ./extension/firefox",
+    "release": "bumpp --commit --tag --push"
   },
   "devDependencies": {
     "@aliuq/eslint-config": "^0.0.2",
@@ -35,6 +36,7 @@
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/compiler-sfc": "^3.2.32",
     "@vueuse/core": "^8.2.5",
+    "bumpp": "^7.1.1",
     "chokidar": "^3.5.3",
     "concurrently": "^7.1.0",
     "cross-env": "^7.0.3",
