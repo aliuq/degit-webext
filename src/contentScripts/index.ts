@@ -11,14 +11,14 @@ import { log } from '~/logic'
 
   onMessage('modify-pages-changed', ({ data }) => {
     log(`Modify pages changed: [${data.source}]`)
-    renderCopyEl(data.source)
+    renderGithubButton(data.source)
   })
 
   onMessage('update-element', ({ data }) => {
     log('Update element')
     log(data)
     if (data.status)
-      renderCopyEl(data.source as string)
+      renderGithubButton(data.source as string)
     else
       removeCopyEl()
   })
@@ -31,21 +31,23 @@ import { log } from '~/logic'
   })
 })()
 
-function renderCopyEl(source: string) {
+function renderGithubButton(source: string) {
   try {
     // Github: Find last element by class name `d-none`
-    const container = Array.prototype.slice.call(
-      document.querySelectorAll('.file-navigation .d-none'),
-      -1,
-    )[0]
+    const selectors = [
+      // Root
+      '.file-navigation > span.d-none:last-of-type',
+      // Subdirectory
+      '.file-navigation > .d-flex > .d-none:last-of-type',
+    ].join(', ')
+    const container = document.querySelector(selectors)
     if (!container)
       return
     const parent = container.parentNode
     const el = parent?.querySelector('.webext-degit')
     el && el.remove()
     const root = document.createElement('div')
-    root.classList.add('webext-degit')
-    root.classList.add(container.classList.contains('btn') ? 'mr-2' : 'ml-2')
+    root.classList.add('webext-degit', container.classList.contains('btn') ? 'mr-2' : 'ml-2')
     parent?.insertBefore(root, container)
     createApp(Github, { source }).mount(root)
   }
