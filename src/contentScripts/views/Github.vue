@@ -12,7 +12,7 @@ const { copy, copied } = useClipboard({ source: props.source })
 <template>
   <div v-if="props.source" class="btn d-none d-md-block" @click="() => copy()">
     Degit {{ copied ? 'Copied' : 'Copy' }}
-    <span title="Fast copy `degit` command path">
+    <span :title="props.source">
       <octicon-question class="octicon d-inline-block ml-10px text-lg" />
     </span>
   </div>
