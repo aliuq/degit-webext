@@ -3,10 +3,11 @@ import type { Manifest } from 'webextension-polyfill'
 import type PkgType from '../package.json'
 import { r } from '../scripts/utils'
 
-const isFirefox = process.env.TARGET === 'firefox'
+let isFirefox = process.env.TARGET === 'firefox'
 
-export async function getManifest() {
+export async function getManifest(target?: string) {
   const pkg = await fs.readJSON(r('package.json')) as typeof PkgType
+  isFirefox = target ? target === 'firefox' : isFirefox
 
   const host_permissions = [
     'http://github.com/*',

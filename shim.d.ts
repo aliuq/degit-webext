@@ -11,3 +11,19 @@ declare module 'webext-bridge' {
     'copy-source': { source: string }
   }
 }
+
+export interface BuildCliOptions {
+  /**
+   * Target platform
+   */
+  target: ['chromium' | 'firefox']
+  /**
+   * Production mode
+   */
+  prod: boolean
+  /**
+   * Extension name
+   * @default `target` value
+   */
+  name?: string[] | undefined
+}
