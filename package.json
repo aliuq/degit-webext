@@ -3,6 +3,7 @@
   "displayName": "Degit WebExt",
   "version": "0.0.1",
   "description": "Fast copy a Degit command path in github repository page",
+  "author": "AliuQ",
   "scripts": {
     "dev:all": "esno build.ts -t chromium,firefox",
     "dev:chromium": "esno build.ts -t chromium",
@@ -25,6 +26,8 @@
     "lint:firefox": "web-ext lint -s ./extension/firefox",
     "release": "npx bumpp --commit --tag --push"
   },
+  "homepage": "https://github.com/aliuq/degit-webext",
+  "bugs": "https://github.com/aliuq/degit-webext/issues",
   "devDependencies": {
     "@aliuq/eslint-config": "^0.0.2",
     "@iconify/json": "^2.1.28",
