@@ -8,7 +8,7 @@
     "dev:all": "esno build.ts -t chromium,firefox",
     "dev:chromium": "esno build.ts -t chromium",
     "dev:firefox": "esno build.ts -t firefox",
-    "build:all": "esno build.ts -t chromium,firefox -p",
+    "build:all": "npm run clear & esno build.ts -t chromium,firefox -p",
     "build:chromium": "esno build.ts -t chromium -p",
     "build:firefox": "esno build.ts -t firefox -p",
     "pack": "run-p pack:chromium:* & run-p pack:firefox:*",
@@ -24,7 +24,7 @@
     "clear": "rimraf extension/chromium extension/firefox extension/__COMMON__ .output",
     "lint": "eslint 'src/**/*.{json,ts,js,vue}'",
     "lint:firefox": "web-ext lint -s ./extension/firefox",
-    "release": "bumpp --commit --tag --push"
+    "release": "npx bumpp --commit --tag --push"
   },
   "devDependencies": {
     "@aliuq/eslint-config": "^0.0.2",
