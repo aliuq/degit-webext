@@ -3,7 +3,6 @@ import { onMessage } from 'webext-bridge'
 import { createApp } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import type { Source } from 'shim'
-import { green } from 'kolorist'
 import Github from './views/Github.vue'
 import { log } from '~/logic'
 
@@ -23,7 +22,7 @@ const validPath = () => allowPathReg.some(reg => location.pathname.match(reg))
   log('Setup from content script')
 
   onMessage('modify-pages-changed', ({ data }) => {
-    log(`Modify pages changed: [${green(data.source)}]`)
+    log(`Modify pages changed: [${data.source}]`)
     renderGithubButton(data.source)
   })
 
