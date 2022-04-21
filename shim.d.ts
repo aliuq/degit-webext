@@ -6,10 +6,18 @@ declare module 'webext-bridge' {
     // see https://github.com/antfu/webext-bridge#type-safe-protocols
     'tab-prev': { title: string | undefined }
     'get-current-tab': ProtocolWithReturn<{ tabId: number }, { title?: string }>
-    'modify-pages-changed': { source: string; host: string }
-    'update-element': { status: boolean; source?: string; host?: string }
+    'modify-pages-changed': { source: string }
+    'update-element': { status: boolean; source?: string }
     'copy-source': { source: string }
+    'get-source': ProtocolWithReturn<{}, string | undefined>
   }
+}
+
+export interface Source {
+  name: string
+  repo: string
+  branch?: string
+  directory?: string
 }
 
 export interface BuildCliOptions {
