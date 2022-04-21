@@ -1,6 +1,6 @@
 {
-  "name": "degit-webext",
-  "displayName": "Degit WebExt",
+  "name": "degit",
+  "displayName": "Degit in Github",
   "version": "0.0.3",
   "description": "Fast copy a Degit command path in github repository page",
   "author": "AliuQ",
