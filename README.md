@@ -1,11 +1,28 @@
-# Degit Webext
+<!-- markdownlint-disable no-inline-html -->
+<h1 align="left" style="display:flex;align-items:center;justify-content:flex-start;">
+ Degit Webext
+ <img src="src/assets/icon-blue-512.png" height="30px" style="margin-left:10px;" />
+</h1>
 
-<!-- markdownlint-disable-next-line no-inline-html -->
-<img src="src/assets/icon-blue-512.png" width="200px" />
-
-![xuanfa](/Photos/1.png)
+<p align="left">
+  <a href="https://addons.mozilla.org/zh-CN/firefox/addon/degit/">
+   <img src="https://img.shields.io/amo/users/{9408450c-b12f-4a07-bb2e-62ff5b320374}?label=Firefox" alt="firefox" />
+  </a>
+  <a href="https://addons.mozilla.org/zh-CN/firefox/addon/degit/">
+   <img src="https://img.shields.io/amo/v/{9408450c-b12f-4a07-bb2e-62ff5b320374}" alt="firefox" />
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/degit-webext/pdhncoaddkgkhkpjnidgfacgkpejapbc">
+   <img src="https://img.shields.io/chrome-web-store/users/pdhncoaddkgkhkpjnidgfacgkpejapbc?label=Chrome&color=blue" alt="chrome" />
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/degit-webext/pdhncoaddkgkhkpjnidgfacgkpejapbc">
+   <img src="https://img.shields.io/chrome-web-store/v/pdhncoaddkgkhkpjnidgfacgkpejapbc" alt="chrome" />
+  </a>
+  <br />
+</p>
 
 A web extension for [Degit](https://github.com/Rich-Harris/degit), it generates a button and add a shortcut key to fast copy a Degit command path in github repository page, support chrome and firefox now.
+
+![xuanfa](/Photos/1.png)
 
 ## About
 
