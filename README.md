@@ -1,7 +1,7 @@
 <!-- markdownlint-disable no-inline-html -->
 <h1 align="left">
  Degit Webext
- <img src="src/assets/icon-blue-512.png" height="30px">
+ <img src="src/assets/icon-blue-512.png" height="28px" align="bottom">
 </h1>
 
 <p align="left">
