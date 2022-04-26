@@ -11,7 +11,7 @@
 *.tgz
 dist
 dist-ssr
-extension/*
+extension/**
 !extension/assets/
 node_modules
 src/auto-imports.d.ts
