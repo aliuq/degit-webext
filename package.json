@@ -2,7 +2,7 @@
   "name": "degit",
   "displayName": "Degit in Github",
   "version": "0.0.3",
-  "description": "Fast copy a Degit command path in github repository page",
+  "description": "Fast copy a Degit command path in github repository pages",
   "author": "AliuQ",
   "scripts": {
     "dev": "esno build.ts -t chromium,firefox",
