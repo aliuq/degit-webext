@@ -19,3 +19,4 @@ src/components.d.ts
 .output/
 note.md
 .amo.env.json
+sign-firefox.ts
